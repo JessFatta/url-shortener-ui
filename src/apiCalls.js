@@ -17,4 +17,4 @@ const postUrls = ({long_url, title}) => {
   }).then(response => response.json())
 }
 
-export {getUrls, postUrls }
+export { getUrls, postUrls }
