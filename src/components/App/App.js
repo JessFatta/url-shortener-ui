@@ -19,12 +19,16 @@ export class App extends Component {
     //.catch(error => this.setState({error: error}))
   }
 
+  postUrls = (data) => {
+    this.setState({urls: [...this.state.urls], data})
+  }
+
   render() {
     return (
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm postUrls={this.postUrls}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>
