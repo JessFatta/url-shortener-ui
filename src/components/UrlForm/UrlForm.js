@@ -13,7 +13,7 @@ class UrlForm extends Component {
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value });
-    console.log(this.state.title)
+    //console.log(this.state.title)
   }
 
   // handleUrlChange = (e) => {
@@ -22,10 +22,11 @@ class UrlForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+  
     postUrls({
       title: this.state.title,
       long_url: this.state.urlToShorten
-    })
+    }).then(data => this.props.postUrls(data))
     this.clearInputs();
   }
 
