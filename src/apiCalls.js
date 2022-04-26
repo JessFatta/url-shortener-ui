@@ -4,4 +4,17 @@ const getUrls = () => {
       .then(data => data.urls)
 }
 
-export {getUrls }
+const postUrls = ({long_url, title}) => {
+  return fetch('http://localhost:3001/api/v1/urls', {
+    method: "POST",
+    body: JSON.stringify({
+      long_url: long_url,
+      title: title
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(response => response.json())
+}
+
+export {getUrls, postUrls }
